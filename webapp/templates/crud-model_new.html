@@ -1,0 +1,16 @@
+<h4>New</h4>
+
+<form id="Form" name="Form" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+
+		<div ng-include="vm.template"></div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+				<button id="cancel" name="cancel" class="btn btn-default" ng-click="vm.goToSearch()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+				<button id="save" name="save" class="btn btn-primary" ng-disabled="vm.isClean() || Form.$invalid" ng-click="vm.save()"><span class="glyphicon glyphicon-save"></span> Save</button>
+      </div>
+    </div>
+</form>

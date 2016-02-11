@@ -1,0 +1,15 @@
+<div class="form-group" ng-class="{'has-error': Form.name.$invalid}">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div id="nameControls" class="col-sm-10">
+        <input id="name" name="name" type="text" required ng-maxlength="100" class="form-control" ng-model="vm.instance.name" placeholder="Enter the Name"></input>
+        <span class="help-block error" ng-show="vm.required == true && Form.name.$error.required">required</span> 
+        <span class="help-block error" ng-show="Form.name.$error.maxlength">maximum length is 100</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.description.$invalid}">
+    <label for="description" class="col-sm-2 control-label">Description</label>
+    <div id="descriptionControls" class="col-sm-10">
+        <input id="description" name="description" type="text"class="form-control" ng-model="vm.instance.description" placeholder="Enter the Description"></input>
+    </div>
+</div>

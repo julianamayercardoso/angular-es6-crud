@@ -1,0 +1,17 @@
+<crud-reference vm="vm" field="'person'" str="vm.personStr" list="vm.personService.listStr" label="'Cliente/Fornecedor'" edit="true"></crud-reference>
+<crud-reference vm="vm" field="'type'" str="vm.requestTypeStr" list="vm.requestTypeService.listStr" label="'Tipo de Operação'" edit="true"></crud-reference>
+
+<div class="form-group" ng-class="{'has-error': Form.date.$invalid}">
+    <label for="date" class="col-sm-2 control-label">Date</label>
+    <div id="dateControls" class="col-sm-10">
+        <input type="datetime-local" id="date" name="date" ng-model="vm.instance.date"></input>
+        <span class="help-block error" ng-show="Form.date.$error.required">required</span> 
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.additionalData.$invalid}">
+    <label for="additionalData" class="col-sm-2 control-label">Additional Data</label>
+    <div id="additionalDataControls" class="col-sm-10">
+        <input id="additionalData" name="additionalData" type="text" class="form-control" ng-model="vm.instance.additionalData" placeholder="Enter the Request Additional Data"></input>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+<div class="form-group" ng-class="{'has-error': Form.name.$invalid}">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div id="nameControls" class="col-sm-10">
+        <input id="name" name="name" type="text" required ng-maxlength="100" class="form-control" ng-model="vm.instance.name" placeholder="Enter the Name"></input>
+        <span class="help-block error" ng-show="vm.required == true && Form.name.$error.required">required</span> 
+        <span class="help-block error" ng-show="Form.name.$error.maxlength">maximum length is 100</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.description.$invalid}">
+    <label for="description" class="col-sm-2 control-label">Description</label>
+    <div id="descriptionControls" class="col-sm-10">
+        <input id="description" name="description" type="text"class="form-control" ng-model="vm.instance.description" placeholder="Enter the Description"></input>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.unit.$invalid}">
+    <label for="unit" class="col-sm-2 control-label">Unit</label>
+    <div id="unitControls" class="col-sm-10">
+        <input id="unit" name="unit" type="text" ng-maxlength="16" class="form-control" ng-model="vm.instance.unit" placeholder="Enter the Unit"></input>
+        <span class="help-block error" ng-show="Form.unit.$error.maxlength">maximum length is 16</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.barcode.$invalid}">
+    <label for="barcode" class="col-sm-2 control-label">Barcode</label>
+    <div id="barcodeControls" class="col-sm-10">
+        <input id="barcode" name="barcode" type="text" ng-maxlength="13"class="form-control" ng-model="vm.instance.barcode" placeholder="Enter the Product Barcode"></input>
+        <span class="help-block error" ng-show="Form.barcode.$error.maxlength">maximum length is 13</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.category.$invalid}">
+    <label for="category" class="col-sm-2 control-label">Category</label>
+    <div id="categoryControls" class="col-sm-10">
+        <input id="category" name="category" type="text" ng-maxlength="100"class="form-control" ng-model="vm.instance.category" placeholder="Enter the Product Category"></input>
+        <span class="help-block error" ng-show="Form.category.$error.maxlength">maximum length is 100</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.manufacturer.$invalid}">
+    <label for="manufacturer" class="col-sm-2 control-label">Manufacturer</label>
+    <div id="manufacturerControls" class="col-sm-10">
+        <input id="manufacturer" name="manufacturer" type="text" ng-maxlength="64"class="form-control" ng-model="vm.instance.manufacturer" placeholder="Enter the Product Manufacturer"></input>
+        <span class="help-block error" ng-show="Form.manufacturer.$error.maxlength">maximum length is 64</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.model.$invalid}">
+    <label for="model" class="col-sm-2 control-label">Model</label>
+    <div id="modelControls" class="col-sm-10">
+        <input id="model" name="model" type="text" ng-maxlength="32"class="form-control" ng-model="vm.instance.model" placeholder="Enter the Product Model"></input>
+        <span class="help-block error" ng-show="Form.model.$error.maxlength">maximum length is 32</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.additionalData.$invalid}">
+    <label for="additionalData" class="col-sm-2 control-label">Additional Data</label>
+    <div id="additionalDataControls" class="col-sm-10">
+        <input id="additionalData" name="additionalData" type="text"class="form-control" ng-model="vm.instance.additionalData" placeholder="Enter the Additional Data"></input>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.clFiscal.$invalid}">
+    <label for="clFiscal" class="col-sm-2 control-label">Cl Fiscal</label>
+    <div id="clFiscalControls" class="col-sm-10">
+        <input id="clFiscal" name="clFiscal" type="text" ng-maxlength="16"class="form-control" ng-model="vm.instance.clFiscal" placeholder="Enter the Product Cl Fiscal"></input>
+        <span class="help-block error" ng-show="Form.clFiscal.$error.maxlength">maximum length is 16</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.departament.$invalid}">
+    <label for="departament" class="col-sm-2 control-label">Departament</label>
+    <div id="departamentControls" class="col-sm-10">
+        <input id="departament" name="departament" type="text" ng-maxlength="64"class="form-control" ng-model="vm.instance.departament" placeholder="Enter the Product Departament"></input>
+        <span class="help-block error" ng-show="Form.departament.$error.maxlength">maximum length is 64</span>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.imageUrl.$invalid}">
+    <label for="imageUrl" class="col-sm-2 control-label">Image Url</label>
+    <div id="imageUrlControls" class="col-sm-10">
+        <input id="imageUrl" name="imageUrl" type="text"class="form-control" ng-model="vm.instance.imageUrl" placeholder="Enter the Product Image Url"></input>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.weight.$invalid}">
+    <label for="weight" class="col-sm-2 control-label">Weight</label>
+    <div id="weightControls" class="col-sm-10">
+        <input id="weight" name="weight" type="text"class="form-control" ng-model="vm.instance.weight" placeholder="Enter the Product Weight"></input>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.taxIpi.$invalid}">
+    <label for="taxIpi" class="col-sm-2 control-label">Tax Ipi</label>
+    <div id="taxIpiControls" class="col-sm-10">
+        <input id="taxIpi" name="taxIpi" type="text"class="form-control" ng-model="vm.instance.taxIpi" placeholder="Enter the Product Tax Ipi"></input>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.taxIcms.$invalid}">
+    <label for="taxIcms" class="col-sm-2 control-label">Tax Icms</label>
+    <div id="taxIcmsControls" class="col-sm-10">
+        <input id="taxIcms" name="taxIcms" type="text"class="form-control" ng-model="vm.instance.taxIcms" placeholder="Enter the Product Tax Icms"></input>
+    </div>
+</div>
+
+<div class="form-group" ng-class="{'has-error': Form.taxIss.$invalid}">
+    <label for="taxIss" class="col-sm-2 control-label">Tax Iss</label>
+    <div id="taxIssControls" class="col-sm-10">
+        <input id="taxIss" name="taxIss" type="text"class="form-control" ng-model="vm.instance.taxIss" placeholder="Enter the Product Tax Iss"></input>
+    </div>
+</div>

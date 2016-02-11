@@ -1,0 +1,6 @@
+<div class="form-group" ng-class="{'has-error': Form.{{field}}.$invalid}">
+    <label for="{{field}}" class="col-sm-2 control-label">{{label}}</label>
+    <div id="{{field}}Controls" class="col-sm-10">
+	 	<input type="text" name="{{field}}" id="{{field}}" typeahead-on-select="vm.setFieldId(field, str)" ng-model="str" uib-typeahead="uibItem for uibItem in list | filter:$viewValue | limitTo:100" class="form-control">
+    </div>
+</div>

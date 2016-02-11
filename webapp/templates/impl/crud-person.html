@@ -1,0 +1,110 @@
+ <div class="form-group" ng-class="{'has-error': Form.name.$invalid}">
+     <label for="name" class="col-sm-2 control-label">Name</label>
+     <div id="nameControls" class="col-sm-10">
+         <input id="name" name="name" type="text" required ng-maxlength="100" class="form-control" ng-model="vm.instance.name" placeholder="Enter the Name"></input>
+         <span class="help-block error" ng-show="Form.name.$error.required">required</span> 
+         <span class="help-block error" ng-show="Form.name.$error.maxlength">maximum length is 100</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.cnpjCpf.$invalid}">
+     <label for="cnpjCpf" class="col-sm-2 control-label">Cnpj Cpf</label>
+     <div id="cnpjCpfControls" class="col-sm-10">
+         <input id="cnpjCpf" name="cnpjCpf" type="text" ng-maxlength="18" class="form-control" ng-model="vm.instance.cnpjCpf" placeholder="Enter the Person Cnpj Cpf"></input>
+         <span class="help-block error" ng-show="Form.cnpjCpf.$error.maxlength">maximum length is 18</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.ieRg.$invalid}">
+     <label for="ieRg" class="col-sm-2 control-label">Ie Rg</label>
+     <div id="ieRgControls" class="col-sm-10">
+         <input id="ieRg" name="ieRg" type="text" ng-maxlength="12"class="form-control" ng-model="vm.instance.ieRg" placeholder="Enter the Person Ie Rg"></input>
+         <span class="help-block error" ng-show="Form.ieRg.$error.maxlength">maximum length is 12</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.zip.$invalid}">
+     <label for="zip" class="col-sm-2 control-label">Zip</label>
+     <div id="zipControls" class="col-sm-10">
+         <input id="zip" name="zip" type="text" ng-maxlength="9"class="form-control" ng-model="vm.instance.zip" placeholder="Enter the Person Zip"></input>
+         <span class="help-block error" ng-show="Form.zip.$error.maxlength">maximum length is 9</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.uf.$invalid}">
+     <label for="uf" class="col-sm-2 control-label">Uf</label>
+     <div id="ufControls" class="col-sm-10">
+         <input id="uf" name="uf" type="text" ng-maxlength="2"class="form-control" ng-model="vm.instance.uf" placeholder="Enter the Person Uf"></input>
+         <span class="help-block error" ng-show="Form.uf.$error.maxlength">maximum length is 2</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.city.$invalid}">
+     <label for="city" class="col-sm-2 control-label">City</label>
+     <div id="cityControls" class="col-sm-10">
+         <input id="city" name="city" type="text" ng-maxlength="64"class="form-control" ng-model="vm.instance.city" placeholder="Enter the Person City"></input>
+         <span class="help-block error" ng-show="Form.city.$error.maxlength">maximum length is 64</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.district.$invalid}">
+     <label for="district" class="col-sm-2 control-label">District</label>
+     <div id="districtControls" class="col-sm-10">
+         <input id="district" name="district" type="text" ng-maxlength="64"class="form-control" ng-model="vm.instance.district" placeholder="Enter the Person District"></input>
+         <span class="help-block error" ng-show="Form.district.$error.maxlength">maximum length is 64</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.address.$invalid}">
+     <label for="address" class="col-sm-2 control-label">Address</label>
+     <div id="addressControls" class="col-sm-10">
+         <input id="address" name="address" type="text" ng-maxlength="100"class="form-control" ng-model="vm.instance.address" placeholder="Enter the Person Address"></input>
+         <span class="help-block error" ng-show="Form.address.$error.maxlength">maximum length is 100</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.phone.$invalid}">
+     <label for="phone" class="col-sm-2 control-label">Phone</label>
+     <div id="phoneControls" class="col-sm-10">
+         <input id="phone" name="phone" type="text" ng-maxlength="16"class="form-control" ng-model="vm.instance.phone" placeholder="Enter the Person Phone"></input>
+         <span class="help-block error" ng-show="Form.phone.$error.maxlength">maximum length is 16</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.fax.$invalid}">
+     <label for="fax" class="col-sm-2 control-label">Fax</label>
+     <div id="faxControls" class="col-sm-10">
+         <input id="fax" name="fax" type="text" ng-maxlength="16"class="form-control" ng-model="vm.instance.fax" placeholder="Enter the Person Fax"></input>
+         <span class="help-block error" ng-show="Form.fax.$error.maxlength">maximum length is 16</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.email.$invalid}">
+     <label for="email" class="col-sm-2 control-label">Email</label>
+     <div id="emailControls" class="col-sm-10">
+         <input id="email" name="email" type="text" ng-maxlength="100"class="form-control" ng-model="vm.instance.email" placeholder="Enter the Person Email"></input>
+         <span class="help-block error" ng-show="Form.email.$error.maxlength">maximum length is 100</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.site.$invalid}">
+     <label for="site" class="col-sm-2 control-label">Site</label>
+     <div id="siteControls" class="col-sm-10">
+         <input id="site" name="site" type="text" ng-maxlength="100"class="form-control" ng-model="vm.instance.site" placeholder="Enter the Person Site"></input>
+         <span class="help-block error" ng-show="Form.site.$error.maxlength">maximum length is 100</span>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.credit.$invalid}">
+     <label for="credit" class="col-sm-2 control-label">Credit</label>
+     <div id="creditControls" class="col-sm-10">
+         <input id="credit" name="credit" type="text"class="form-control" ng-model="vm.instance.credit" placeholder="Enter the Person Credit"></input>
+     </div>
+ </div>
+
+ <div class="form-group" ng-class="{'has-error': Form.additionalData.$invalid}">
+     <label for="additionalData" class="col-sm-2 control-label">Additional Data</label>
+     <div id="additionalDataControls" class="col-sm-10">
+         <input id="additionalData" name="additionalData" type="text"class="form-control" ng-model="vm.instance.additionalData" placeholder="Enter the Additional Data"></input>
+     </div>
+ </div>

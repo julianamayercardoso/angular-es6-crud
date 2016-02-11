@@ -1,0 +1,31 @@
+
+<div id="crud-table-{{vm.restName}}" ng-show="vm.filterResults.length > 0 && vm.id == '0' && vm.editMode == 0">
+    <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th ng-repeat="label in vm.labels">{{label}}</th>
+                </tr>
+            </thead>
+            <tbody id="crud-table-body-{{vm.restName}}">
+                <tr ng-repeat="result in vm.filterResults | startFrom:vm.pagination.currentPage*vm.pagination.pageSize | limitTo:vm.pagination.pageSize">
+                    <td><a href ng-click="vm.goToView(result[vm.primaryKey])"><span class="glyphicon glyphicon-eye-open"></span> View</a> / <a href ng-click="vm.goToEdit(result[vm.primaryKey])"><span class="glyphicon glyphicon-edit"></span> Edit</a></td>
+                    <td ng-repeat="field in vm.fields">{{result[field]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="pagination pagination-centered" ng-show="vm.pagination.numPages > 1">
+        <li ng-class="{disabled:vm.pagination.currentPage == 0}">
+            <a id="prev" href ng-click="vm.pagination.previous()">«</a>
+        </li>
+        <li ng-repeat="n in vm.pagination.pageRange" ng-class="{active:vm.pagination.currentPage == n}" ng-click="vm.pagination.setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: vm.pagination.currentPage == (vm.pagination.numPages - 1)}">
+            <a id="next" href ng-click="vm.pagination.next()">»</a>
+        </li>
+    </ul>
+</div>

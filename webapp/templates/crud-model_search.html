@@ -1,0 +1,34 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <button id="Create" name="Create" class="btn btn-primary" ng-click="vm.goToNew()"><span class="glyphicon glyphicon-plus-sign"></span> Create</button>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default" ng-show="vm.searchResults.length > 0">
+	<div class="panel-heading" role="tab">
+	    <a class="collapsed" role="button" ng-click="vm.isCollapsedForm = !vm.isCollapsedForm">Search / Filter</a>
+	</div>
+
+	<div id="collapseForm" class="panel-collapse {{vm.collapse}}" role="tabpanel" uib-collapse="vm.isCollapsedForm">
+		<div class="panel-body">
+		    <form id="Form" name="Form" class="form-horizontal" role="form">
+			    <div ng-show="displayError" class="alert alert-danger">
+			        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+			    </div>
+			
+					<div ng-include="vm.template"></div>
+			
+			    <div class="form-group">
+			      <div class="col-sm-offset-2 col-sm-10">
+							<button id="exit" name="exit" class="btn btn-default" ng-click="vm.goToSearch()"><span class="glyphicon glyphicon-remove-sign"></span> Exit</button>
+							<button id="search" name="search" class="btn btn-primary" ng-click="vm.applyFilter()"><span class="glyphicon glyphicon-search"></span> Search</button>
+			      </div>
+			    </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<crud-table crud="vm"></crud-table>
