@@ -1,0 +1,21 @@
+<h1>Statistics</h1>
+
+<div class="table-responsive">
+    <table class="table table-responsive table-bordered table-striped clearfix">
+        <thead>
+            <tr>
+                <th>Tabela</th>
+                <th>Registros</th>
+            </tr>
+        </thead>
+        <tbody id="crud-table-body-statistics">
+            <tr ng-repeat="result in vm.listService">
+                <td>{{result.label}}</td>
+                <td>
+                	<p ng-if="result.list == undefined">---</p>
+                	<p ng-if="result.list != undefined">{{result.list.length}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

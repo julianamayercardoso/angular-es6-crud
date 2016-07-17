@@ -1,0 +1,67 @@
+<div ng-show="edit == true || vm.fields != undefined">
+	<hr/>
+	<h3>{{vm.title}}</h3>
+</div>
+
+<form id="{{vm.formId}}" name="{{vm.formId}}" class="form-horizontal" role="form" ng-show="edit == true">
+    <div ng-show="vm.instance._name.length > 0" class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="add" name="add" class="btn btn-primary" ng-disabled="{{vm.formId}}.$invalid" ng-click="vm.save()"><span class="glyphicon glyphicon-plus-sign"></span> Add</button>
+        </div>
+    </div>
+
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    
+		<div class="form-group" ng-class="{'has-error': {{vm.formId}}._name.$invalid}">
+		    <label for="_name" class="col-sm-2 control-label">Nome</label>
+		    
+		    <div id="_name_controls" class="col-sm-10">
+					<input ng-if="vm.nameOptions == undefined" class="form-control" id="_name" name="_name" type="text" ng-model="vm.instance._name" placeholder="Digite o nome do campo"></input>
+					<input  ng-if="vm.nameOptions != undefined && vm.nameOptions.length >  50" class="form-control" id="_name" name="_name" ng-model="vm.instance._name" uib-typeahead="o for o in vm.nameOptions | filter:$viewValue | limitTo:100" type="text">
+					<select ng-if="vm.nameOptions != undefined && vm.nameOptions.length <= 50" class="form-control" id="_name" name="_name" ng-model="vm.instance._name"    ng-options="o for o in vm.nameOptions | filter:$viewValue | limitTo:100"></select>
+		    </div>
+		</div>
+
+		<div ng-show="vm.instance._name.length > 0" ng-repeat="(fieldName,field) in vm.fields" class="form-group" ng-class="{'has-error': {{vm.formId}}.{{fieldName}}.$invalid}">
+		    <label for="{{fieldName}}" class="col-sm-2 control-label">{{field._label}}</label>
+		    
+		    <div id="{{fieldName}}_controls" class="col-sm-10">
+					<input ng-if="field.options == undefined" class="form-control" id="{{fieldName}}" name="{{fieldName}}" type="text" ng-model="vm.instance[fieldName]" placeholder="{{field.placeholder}}"></input>
+					<input  ng-if="field.options != undefined && field.options.length >  50" class="form-control" id="{{fieldName}}" name="{{fieldName}}" ng-model="vm.instance[fieldName]" uib-typeahead="o for o in field.options | filter:$viewValue | limitTo:100" type="text">
+					<select ng-if="field.options != undefined && field.options.length <= 50" class="form-control" id="{{fieldName}}" name="{{fieldName}}" ng-model="vm.instance[fieldName]"    ng-options="o for o in field.options | filter:$viewValue | limitTo:100"></select>
+		    </div>
+		</div>
+
+    <div ng-show="vm.instance._name.length > 0" class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="add" name="add" class="btn btn-primary" ng-disabled="{{vm.formId}}.$invalid" ng-click="vm.save()"><span class="glyphicon glyphicon-plus-sign"></span> Add</button>
+        </div>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-responsive table-bordered table-striped clearfix">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+           		<th ng-repeat="(fieldName,field) in vm.fields">{{field._label}}</th>
+            </tr>
+        </thead>
+        <tbody id="crud-table-body-{{vm.formId}}">
+            <tr ng-repeat="item in vm.list">
+								<td>
+									<a href ng-click="vm.remove($index)"><span class="glyphicon glyphicon-trash"></span> Delete</a> /
+									<a href ng-click="vm.edit($index)"><span class="glyphicon glyphicon-trash"></span> Edit</a> /
+									<a href ng-click="vm.moveUp($index)"><span class="glyphicon glyphicon-arrow-up"></span> Up</a> /
+									<a href ng-click="vm.moveDown($index)"><span class="glyphicon glyphicon-arrow-down"></span> Down</a>
+								</td>
+                <td ng-repeat="(fieldName,field) in item">
+                	{{field}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
