@@ -1,6 +1,13 @@
 <h4>View</h4>
 
-<form id="Form" name="Form" class="form-horizontal" role="form">
+<form id="{{vm.formId}}" name="{{vm.formId}}" class="form-horizontal" role="form">
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+		<button id="exit" name="exit" class="btn btn-default" ng-click="vm.goToSearch()"><span class="glyphicon glyphicon-remove-sign"></span> Exit</button>
+		<button ng-if="vm.crudService.params.access.create != false" id="saveAsNew" name="saveAsNew" class="btn btn-primary" ng-disabled="vm.isClean() || {{vm.formId}}.$invalid" ng-click="vm.saveAsNew()"><span class="glyphicon glyphicon-import"></span> Save As New</button>
+      </div>
+    </div>
+
     <div ng-show="displayError" class="alert alert-danger">
         <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
     </div>
@@ -9,9 +16,11 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-				<button id="exit" name="exit" class="btn btn-default" ng-click="vm.goToSearch()"><span class="glyphicon glyphicon-remove-sign"></span> Exit</button>
+		<button id="exit" name="exit" class="btn btn-default" ng-click="vm.goToSearch()"><span class="glyphicon glyphicon-remove-sign"></span> Exit</button>
+		<button ng-if="vm.crudService.params.access.create != false" id="saveAsNew" name="saveAsNew" class="btn btn-primary" ng-disabled="vm.isClean() || {{vm.formId}}.$invalid" ng-click="vm.saveAsNew()"><span class="glyphicon glyphicon-import"></span> Save As New</button>
       </div>
     </div>
 </form>
 
 <crud-item ng-repeat="item in vm.listItemCrud" vm="item" edit="false"></crud-item>
+<crud-item-json ng-repeat="item in vm.listItemCrudJson" vm="item" edit="false"></crud-item-json>

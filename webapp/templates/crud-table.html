@@ -1,21 +1,4 @@
-
-<div id="crud-table-{{vm.restName}}" ng-show="vm.filterResults.length > 0 && vm.id == '0' && vm.editMode == 0">
-    <div class="table-responsive">
-        <table class="table table-responsive table-bordered table-striped clearfix">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th ng-repeat="label in vm.labels">{{label}}</th>
-                </tr>
-            </thead>
-            <tbody id="crud-table-body-{{vm.restName}}">
-                <tr ng-repeat="result in vm.filterResults | startFrom:vm.pagination.currentPage*vm.pagination.pageSize | limitTo:vm.pagination.pageSize">
-                    <td><a href ng-click="vm.goToView(result[vm.primaryKey])"><span class="glyphicon glyphicon-eye-open"></span> View</a> / <a href ng-click="vm.goToEdit(result[vm.primaryKey])"><span class="glyphicon glyphicon-edit"></span> Edit</a></td>
-                    <td ng-repeat="field in vm.fields">{{result[field]}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div id="crud-table-{{vm.crudService.path}}" ng-show="vm.filterResults.length > 0">
 
     <ul class="pagination pagination-centered" ng-show="vm.pagination.numPages > 1">
         <li ng-class="{disabled:vm.pagination.currentPage == 0}">
@@ -28,4 +11,28 @@
             <a id="next" href ng-click="vm.pagination.next()">»</a>
         </li>
     </ul>
+
+    <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th></th>
+               		<th ng-repeat="(fieldName,field) in vm.fields" ng-if="field.hiden != true">{{field.label}}</th>
+                </tr>
+            </thead>
+            <tbody id="crud-table-body-{{vm.crudService.path}}">
+                <tr ng-repeat="result in vm.filterResults | startFrom:vm.pagination.currentPage*vm.pagination.pageSize | limitTo:vm.pagination.pageSize">
+					<td>
+						<a href ng-if="vm.crudService.params.access.read != false" ng-click="vm.goToView(result[vm.crudService.primaryKey])"><span class="glyphicon glyphicon-eye-open"></span> View</a> /
+						<a href ng-if="vm.crudService.params.access.update != false" ng-click="vm.goToEdit(result[vm.crudService.primaryKey])"><span class="glyphicon glyphicon-edit"></span> Edit</a> /
+						<a href ng-if="vm.crudService.params.access.delete != false" ng-click="vm.remove(result[vm.crudService.primaryKey])"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+					</td>
+                    <td ng-repeat="(fieldName,field) in vm.fields" ng-if="field.hiden != true">
+                    	<a href="{{vm.goToField(result, fieldName, edit)}}">{{vm.crudService.getStrValue(result, fieldName)}}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

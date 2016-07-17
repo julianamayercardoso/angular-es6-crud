@@ -2,7 +2,10 @@
 
 class Filter {
 	
-    matchObjectProperties(expectedObject, actualObject) {
+	constructor() {
+	}
+	// private
+	static matchObjectProperties(expectedObject, actualObject) {
         var flag = true;
         
         for(var key in expectedObject) {
@@ -23,6 +26,8 @@ class Filter {
                     flag = false;
                 } else if (angular.isObject(expectedProperty)) {
                     flag = flag && matchObjectProperties(expectedProperty, actualProperty);
+                } else if (typeof expectedProperty === "number" && typeof actualProperty === "number") {
+                	flag = (expectedProperty == actualProperty);
                 } else {
                     flag = flag && (actualProperty.toString().indexOf(expectedProperty.toString()) != -1);
                 }
@@ -31,8 +36,8 @@ class Filter {
         
         return flag;
     }
-
-	process(expectedObject, list) {
+    // public
+	static process(expectedObject, list) {
     	var filteredResults = [];
         
         for (var ctr = 0; ctr < list.length; ctr++) {
